@@ -1,5 +1,6 @@
 {% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
+{% load socialaccount %}
 {% block content %}
     <div class="content-section">
         <form method="POST">
@@ -10,6 +11,7 @@
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Sign up</button>
+                 <a href="{% provider_login_url 'google' %}">Login with Google</a>
             </div>
         </form>
         <div class="border-top pt-3">

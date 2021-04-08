@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load socialaccount %}
 
 {% load crispy_forms_tags %}
 {% block content %}
@@ -11,6 +12,7 @@
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Log In</button>
+                <a href="{% provider_login_url 'google' %}">Login with Google</a>
             </div>
             <div class="border-top pt-3">
                 <small class="text-muted">

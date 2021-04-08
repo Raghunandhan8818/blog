@@ -82,3 +82,9 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+
+
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #7868e6 !important;
+}
