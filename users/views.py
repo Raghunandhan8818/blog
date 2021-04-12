@@ -6,7 +6,6 @@ from .forms import UserUpdateForm
 from .forms import ProfileUpdateForm
 
 
-
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -19,9 +18,9 @@ def register(request):
             return redirect('login')
     else:
         form = UserRegisterForm()
-
-
     return render(request, 'users/register.html', {'form': form})
+
+    # return render(request, 'users/register.html', {'one_tap_client_id': 698034386554-mkekasoc9rl8t22191e5quvlfe2t9h9u.apps.googleusercontent.com}, {'form': form})
 
 
 # @login_required

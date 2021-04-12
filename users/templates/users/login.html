@@ -13,6 +13,9 @@
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Log In</button>
                 <a href="{% provider_login_url 'google' %}">Login with Google</a>
+                <br><small class="text-muted ml-2">
+                    <a href="{% url 'password_reset' %}">Forgot Password?</a>
+                </small>
             </div>
             <div class="border-top pt-3">
                 <small class="text-muted">
@@ -22,3 +25,8 @@
         </form>
     </div>
 {% endblock %}
+
+
+
+
+
