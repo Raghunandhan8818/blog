@@ -27,7 +27,7 @@ SECRET_KEY = '0vryw4fpjs_to_g5n)##nn1(a8-@t0d&^9k%e-4a-(juuba_rn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [raghus-blog.herokuapp.com]
+ALLOWED_HOSTS = ['raghus-blog.herokuapp.com']
 
 # Application definition
 
