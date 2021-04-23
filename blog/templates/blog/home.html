@@ -6,16 +6,58 @@
             <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
             <div class="media-body">
                 <div class="article-metadata">
-                    <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+                    <br><a class="pt-0" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a><br>
                     <small class="text-muted">{{ post.date_posted | date:"F d, Y" }}</small>
                 </div>
-                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-                <p class="article-content">{{ post.content |truncatechars:400 }}</p>
-                <a button type="button" class="btn btn-primary" href="{% url 'post-detail' post.id %}">Read
-                    More</a button>
+                <h2><a class="mr-2 article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                {% if post.image.url != '/media/default.jpg' %}
+                    {#                    <div class="row" style="border:none; background:white; height:210px;">#}
+                    <div class="row">
+                        <div class="col">
+                            <img src="{{ post.image.url }}" style="height:200px; margin-left:2px;"
+                                 alt="Responsive image"/><br><br>
+                        </div>
+                        <div class="col">
+                            <p class="article-content">{{ post.content |truncatechars:250 }}</p>
+                            <a button type="button" class="btn btn-info" href="{% url 'post-detail' post.id %}">
+                                Read
+                                More</a button>
+                        </div>
+                    </div>
+
+
+                {% else %}
+                    <p class="h6 article-content">{{ post.content |truncatechars:400 }}</p>
+                    <a button type="button" class="btn btn-info" href="{% url 'post-detail' post.id %}">Read
+                        More</a button>
+                {% endif %}
             </div>
         </article>
     {% endfor %}
+    {#        {% for post in posts %}#}
+    {#            <article class="media content-section">#}
+    {#                <div class="card mb-3">#}
+    {##}
+    {#                    <div class="p-3 media-body">#}
+    {#                        <div class="card body">#}
+    {#                            <img class="ml-3 mt-2 rounded-circle article-img" src="{{ post.author.profile.image.url }}">#}
+    {#                            <div class="article-metadata">#}
+    {#                                <a class="ml-3" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>#}
+    {#                                <small class="ml-3 mt-1 text-muted">{{ post.date_posted | date:"F d, Y" }}</small>#}
+    {#                            </div>#}
+    {#                        </div>#}
+    {#                        {% if post.image.url != '/media/default.jpg' %}#}
+    {#                            <img class="p-3 card-img-top" src="{{ post.image.url }}" alt="Card image cap">#}
+    {#                        {% endif %}#}
+    {##}
+    {#                        <h2><a class="p-3 card-title " href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>#}
+    {#                        <p class="p-3 card-text">{{ post.content |truncatechars:400 }}</p>#}
+    {#                        <a button type="button" class="ml-3 mb-3 btn btn-primary" href="{% url 'post-detail' post.id %}">Read#}
+    {#                            More</a button>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </article>#}
+    {#        {% endfor %}#}
     {% if is_paginated %}
         {% if page_obj.has_previous %}
             <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
@@ -35,3 +77,24 @@
     {% endif %}
 {% endblock content %}
 
+
+
+
+
+
+{#{% if object.image.url != '/media/default.jpg' %}#}
+{#                <img style="width: 100%; height: auto;" class="rounded mx-auto d-block" alt="Responsive image"#}
+{#                     src="{{ object.image.url }}">#}
+{#            {% endif %}#}
+
+
+{##}
+{#<div class="row" style="border:none; background:white; height:210px;">#}
+{#		<div class="col-xs-6">#}
+{#			<img src="images/online_learning.jpg" style="height:200px; margin-left:-15px;" />#}
+{#		</div>#}
+{#		<div class="col-xs-6">  #}
+{#			<h3>Hello World</h3>#}
+{#			<p style="font-size:10px; color:#03225C;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit adipiscing blandit. Aliquam placerat, velit a fermentum fermentum, mi felis vehicula justo, a dapibus quam augue non massa.</p>#}
+{#		</div>#}
+{#	</div>#}

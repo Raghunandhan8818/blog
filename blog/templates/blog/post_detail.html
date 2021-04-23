@@ -16,10 +16,11 @@
                     </div>
                 {% endif %}
             </div>
-            <center><h2 class="article-title">{{ object.title }}</h2></center>
+           <br> <center><h2 class="article-title">{{ object.title }}</h2></center>
             {% if object.image.url != '/media/default.jpg' %}
-                <img style="width: 100%; height: auto;" class="rounded mx-auto d-block" alt="Responsive image" src="{{ object.image.url }}">
-            {% endif %}
+                <img style="width: 100%; height: auto;" class="rounded mx-auto d-block" alt="Responsive image"
+                     src="{{ object.image.url }}">
+            {% endif %}<br><br>
             <p class="article-content">{{ object.content }}</p>
         </div>
         <div>
@@ -40,8 +41,12 @@
                     {% endif %}
                 </form>
             {% else %}
-                <a class="btn btn-outline-info" href="{% url 'login' %}?next={{ request.path }}">Log in to like this
-                    article!</a><br>
+                <a class="btn btn-outline-danger" href="{% url 'login' %}?next={{ request.path }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-heart" viewBox="0 0 16 16">
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                    </svg>
+                </a><br>
             {% endif %}
             <strong class="text-secondary">{{ number_of_likes }} Like{{ number_of_likes|pluralize }}</strong>
         </div>
